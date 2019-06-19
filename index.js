@@ -13,7 +13,6 @@ var projectDir = process.cwd();
 var Promise = require('promise');
 var URL = require('url');
 var options = require('./options')
-var packageJson = require('./package.json')
 
 var regexParseProjectName = /^([^:]+:\/\/[^\/]+?\/|[^:]+:)([^\/]+\/[^\/]+?)(?:\.git)?\s*$/;
 
@@ -480,7 +479,7 @@ function createMergeRequest(options) {
 
 program
   .description('gitlab command line utility')
-  .version(packageJson.version);
+  .version('1.0.2');
 
 program.Command.prototype.legacy = function (alias) {
   legacies[alias] = this._name;
@@ -517,6 +516,7 @@ program
   .option('-r, --remove_source_branch [optional]', 'Flag indicating if a merge request should remove the source branch when merging')
   .option('-s, --squash [optional]', 'Squash commits into a single commit when merging')
   .option('-e, --edit [optional]', 'If supplied opens edit page of merge request. Prints the merge request URL otherwise')
+  .option('-p, --print [optional]', 'This is keept for backward compatibility. Used to specify to print the url of the merge request.')
   .option('-o, --open [optional]', 'If supplied open the page of the merge request. Prints the merge request URL otherwise')
   .option('-v, --verbose [optional]', 'Detailed logging emitted on console for debug purpose')
   .description('Create merge request on gitlab')
