@@ -471,7 +471,8 @@ function createMergeRequest(options) {
     if (err.message) {
       console.error(colors.red('Couldn\'t create merge request'));
       console.log(colors.red(err.message));
-    } else if (err instanceof Array) {
+      logger.log(colors.red(err.stack));
+     } else if (err instanceof Array) {
       console.error(colors.red('Couldn\'t create merge request'));
       console.log(colors.red(err.join()));
     }
