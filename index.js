@@ -475,6 +475,7 @@ function createMergeRequest(options) {
       console.error(colors.red('Couldn\'t create merge request'));
       console.log(colors.red(err.join()));
     }
+    process.exit(1);
   })
 }
 
